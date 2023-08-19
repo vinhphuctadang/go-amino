@@ -303,7 +303,7 @@ func (cdc *Codec) encodeReflectJSONStruct(w io.Writer, info *TypeInfo, rv reflec
 		}
 		// If frv is empty and omitempty, skip it.
 		// NOTE: Unlike Amino:binary, we don't skip null fields unless "omitempty".
-		if field.JSONOmitEmpty && isEmpty(frv, field.ZeroValue) {
+		if cdc.UseOmitEmpty && field.JSONOmitEmpty && isEmpty(frv, field.ZeroValue) {
 			continue
 		}
 		// Now we know we're going to write something.

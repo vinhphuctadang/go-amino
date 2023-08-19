@@ -135,6 +135,8 @@ type Codec struct {
 	concreteInfos    []*TypeInfo
 	disfixToTypeInfo map[DisfixBytes]*TypeInfo
 	nameToTypeInfo   map[string]*TypeInfo
+
+	UseOmitEmpty bool
 }
 
 func NewCodec() *Codec {
